@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warzone Expert Roadmap</title>
+<style>
+  :root{
+    --bg:#fbfbfd; --panel:#ffffff; --txt:#1d1d1f; --mut:#6e6e73;
+    --line:#d2d2d7; --line2:#e8e8ed;
+    --blue:#0071e3; --blueink:#06c;
+    --hi:#1d8a3f; --hibg:#e8f6ec;
+    --med:#9a6a00; --medbg:#fdf3e1;
+    --un:#6e6e73; --unbg:#f0f0f3;
+    --ref:#c4221c; --refbg:#fdeceb;
+    --hero1:#1d1d1f; --hero2:#434348;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);
+    font:17px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px 120px}
+
+  /* hero */
+  header{padding:130px 24px 90px;text-align:center;
+    background:linear-gradient(180deg,#f5f5f7 0%,#fbfbfd 100%)}
+  header .eyebrow{color:var(--blueink);font-weight:600;font-size:1.05rem;
+    letter-spacing:.2px;margin-bottom:14px}
+  header h1{margin:0 auto 22px;max-width:760px;
+    font-size:clamp(2.6rem,6vw,4.2rem);line-height:1.05;letter-spacing:-.025em;
+    font-weight:700;
+    background:linear-gradient(180deg,var(--hero1),var(--hero2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  header .sub{color:var(--mut);font-size:clamp(1.1rem,2.4vw,1.45rem);
+    max-width:600px;margin:0 auto;line-height:1.45;font-weight:400}
+  header .stamp{margin-top:34px;display:inline-flex;gap:10px;flex-wrap:wrap;
+    justify-content:center}
+  header .stamp span{background:rgba(255,255,255,.7);border:1px solid var(--line2);
+    color:var(--mut);padding:7px 16px;border-radius:980px;font-size:.85rem;
+    font-weight:500;backdrop-filter:saturate(180%) blur(20px)}
+
+  section{margin-top:34px}
+  h2{margin:0 0 6px;font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.02em;
+    font-weight:700;line-height:1.1}
+  .kicker{color:var(--blueink);font-weight:600;font-size:.95rem;
+    letter-spacing:.3px;text-transform:uppercase;margin-bottom:6px}
+  h3{margin:30px 0 6px;font-size:1.35rem;letter-spacing:-.01em;font-weight:600}
+  .lead{color:var(--mut);font-size:1.15rem;margin:6px 0 22px;line-height:1.5}
+  p{margin:14px 0}
+
+  /* legend */
+  .legend{display:flex;gap:10px 22px;flex-wrap:wrap;font-size:.9rem;
+    color:var(--mut);margin:34px 0 0;justify-content:center}
+  .legend .badge{margin-right:7px}
+
+  /* badges */
+  .badge{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.2px;
+    padding:3px 11px;border-radius:980px;vertical-align:middle;margin-right:8px;
+    white-space:nowrap}
+  .b-hi{background:var(--hibg);color:var(--hi)}
+  .b-med{background:var(--medbg);color:var(--med)}
+  .b-un{background:var(--unbg);color:var(--un)}
+  .b-ref{background:var(--refbg);color:var(--ref)}
+
+  /* cards */
+  .card{background:var(--panel);border:1px solid var(--line2);border-radius:22px;
+    padding:30px 34px;margin:26px 0;
+    box-shadow:0 1px 3px rgba(0,0,0,.04),0 10px 40px rgba(0,0,0,.03)}
+  .tldr{background:linear-gradient(180deg,#ffffff,#f7f7fa);
+    border:1px solid var(--line2);border-radius:28px;padding:38px 40px;margin:50px 0;
+    box-shadow:0 2px 6px rgba(0,0,0,.05),0 18px 60px rgba(0,0,0,.05)}
+  .tldr h2{font-size:1.9rem;margin-bottom:4px}
+  .tldr ol{margin:22px 0 0;padding:0;counter-reset:t;list-style:none}
+  .tldr li{position:relative;padding:0 0 20px 52px;margin:0}
+  .tldr li:last-child{padding-bottom:0}
+  .tldr li::before{counter-increment:t;content:counter(t);position:absolute;left:0;top:-2px;
+    width:34px;height:34px;border-radius:50%;background:var(--txt);color:#fff;
+    font-weight:600;font-size:1rem;display:flex;align-items:center;justify-content:center}
+
+  /* toc */
+  .toc{background:var(--panel);border:1px solid var(--line2);border-radius:22px;
+    padding:14px 22px;margin:40px 0;columns:2;column-gap:26px;
+    box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .toc a{color:var(--txt);text-decoration:none;display:block;padding:9px 0;
+    font-size:.97rem;border-bottom:1px solid var(--line2);
+    transition:color .15s}
+  .toc a:hover{color:var(--blue)}
+  @media(max-width:560px){.toc{columns:1}}
+
+  /* tables */
+  .tablewrap{background:var(--panel);border:1px solid var(--line2);border-radius:20px;
+    overflow:hidden;margin:18px 0;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  table{width:100%;border-collapse:collapse;font-size:.98rem}
+  th,td{text-align:left;padding:14px 20px;border-bottom:1px solid var(--line2)}
+  tr:last-child td{border-bottom:0}
+  th{color:var(--mut);font-size:.78rem;text-transform:uppercase;letter-spacing:.6px;
+    font-weight:600;background:#fafafc}
+  tbody tr{transition:background .12s}
+  tbody tr:hover{background:#f7f8fa}
+  .tier{font-weight:700}
+  .tier-s{color:#c4221c}.tier-a{color:#9a6a00}.tier-b{color:var(--blueink)}
+
+  code{background:#f0f0f3;border:1px solid var(--line2);padding:2px 8px;border-radius:7px;
+    font-size:.86em;font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;color:#bf3a2b}
+
+  ul.tight{padding-left:0;list-style:none;margin:14px 0}
+  ul.tight li{position:relative;padding:8px 0 8px 28px;border-bottom:1px solid var(--line2)}
+  ul.tight li:last-child{border-bottom:0}
+  ul.tight li::before{content:"";position:absolute;left:6px;top:16px;width:6px;height:6px;
+    border-radius:50%;background:var(--blue)}
+
+  .src{font-size:.86rem;color:var(--mut);margin-top:14px}
+  .src a{color:var(--blueink);text-decoration:none}
+  .src a:hover{text-decoration:underline}
+  a.inline{color:var(--blueink);text-decoration:none}
+  a.inline:hover{text-decoration:underline}
+
+  /* callouts */
+  .note,.danger{border-radius:16px;padding:18px 22px;margin:20px 0;font-size:.98rem;
+    line-height:1.5}
+  .note{background:#eef6ff;color:#0a3a66}
+  .danger{background:#fff5f4;color:#7a1d18}
+  .note strong,.danger strong{font-weight:600}
+
+  /* week timeline */
+  .week{display:grid;grid-template-columns:96px 1fr;background:var(--panel);
+    border:1px solid var(--line2);border-radius:20px;overflow:hidden;margin:16px 0;
+    box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .week .wk{background:linear-gradient(180deg,#1d1d1f,#434348);color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-weight:700;padding:22px 10px;text-align:center;line-height:1.1}
+  .week .wk small{font-weight:500;font-size:.66rem;opacity:.7;letter-spacing:.5px;
+    text-transform:uppercase;margin-bottom:3px}
+  .week .wk b{font-size:1.7rem}
+  .week .wd{padding:22px 26px}
+  .week .wd h4{margin:0 0 10px;font-size:1.12rem;font-weight:600}
+  .week .wd ul{margin:0}
+
+  /* refuted rows */
+  .refgrid{display:grid;gap:12px}
+  .refrow{background:var(--panel);border:1px solid var(--line2);border-radius:16px;
+    padding:16px 20px;font-size:.97rem;box-shadow:0 1px 3px rgba(0,0,0,.03)}
+  .strike{color:var(--mut);text-decoration:line-through}
+
+  hr.div{border:0;border-top:1px solid var(--line2);margin:64px 0 0}
+
+  /* winning blueprint phases */
+  .phase{background:var(--panel);border:1px solid var(--line2);border-radius:20px;
+    padding:24px 28px;margin:16px 0;position:relative;overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .phase::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;
+    background:linear-gradient(180deg,var(--blue),#3aa0ff)}
+  .phase .ph-head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px;flex-wrap:wrap}
+  .phase .ph-tag{font-size:.72rem;font-weight:600;letter-spacing:.6px;text-transform:uppercase;
+    color:var(--blueink);background:#eef6ff;padding:4px 12px;border-radius:980px}
+  .phase h4{margin:0;font-size:1.18rem;font-weight:600}
+  .phase .ph-min{color:var(--mut);font-size:.86rem}
+  .winnote{background:linear-gradient(180deg,#f0f7ff,#eaf3ff);border:1px solid #d6e8fb;
+    border-radius:18px;padding:22px 26px;margin:22px 0;font-size:1.02rem;line-height:1.5}
+  .winnote b{font-weight:600}
+
+  /* platform split (controller vs PC) */
+  .platform{background:var(--panel);border:1px solid var(--line2);border-radius:24px;
+    padding:8px 30px 30px;margin:26px 0;box-shadow:0 1px 3px rgba(0,0,0,.04),0 10px 40px rgba(0,0,0,.03)}
+  .platform .pf-head{display:flex;align-items:center;gap:14px;
+    margin:0 -30px 18px;padding:24px 30px 20px;border-bottom:1px solid var(--line2)}
+  .platform .pf-icon{font-size:1.9rem;line-height:1}
+  .platform .pf-title{font-size:1.45rem;font-weight:600;letter-spacing:-.01em}
+  .platform .pf-sub{color:var(--mut);font-size:.92rem;margin-top:2px}
+  .platform .pf-titlewrap{flex:1}
+  .platform h3{margin-top:24px}
+  .platform h3:first-of-type{margin-top:8px}
+
+  footer{text-align:center;color:var(--mut);font-size:.86rem;margin-top:50px;
+    padding-top:28px;line-height:1.6}
+
+  ::selection{background:#b8dbff}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Season 4 · June 2026</div>
+  <h1>Become a Warzone Expert.</h1>
+  <div class="sub">A research-backed roadmap from average to expert — settings, movement, aim, meta, and a week-by-week plan.</div>
+  <div class="stamp">
+    <span>Researched 7 Jun 2026</span>
+    <span>22 sources · 96 claims</span>
+    <span>19 verified · adversarially fact-checked</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="legend">
+    <span><span class="badge b-hi">High</span>verified, strong consensus</span>
+    <span><span class="badge b-med">Medium</span>verified, some disagreement</span>
+    <span><span class="badge b-un">Unverified</span>practitioner guidance</span>
+    <span><span class="badge b-ref">Refuted</span>failed verification</span>
+  </div>
+
+  <nav class="toc">
+    <a href="#tldr">The Short Version</a>
+    <a href="#settings">1 · Settings &amp; Sensitivity</a>
+    <a href="#audio">2 · Audio / Sound Whoring</a>
+    <a href="#meta">3 · Weapon Meta &amp; Loadouts</a>
+    <a href="#aim">4 · Aim Training</a>
+    <a href="#movement">5 · Movement Tech</a>
+    <a href="#gulag">6 · Gulag Strategy</a>
+    <a href="#strategy">7 · Rotations &amp; Positioning</a>
+    <a href="#comms">8 · Comms, Roles &amp; Looting</a>
+    <a href="#mistakes">9 · Beginner Mistakes</a>
+    <a href="#winning">The Winning Blueprint</a>
+    <a href="#plan">The 8-Week Plan</a>
+    <a href="#myths">Debunked Myths</a>
+    <a href="#caveats">Caveats</a>
+    <a href="#sources">Sources</a>
+  </nav>
+
+  <div class="tldr" id="tldr">
+    <h2>The Short Version</h2>
+    <p class="lead" style="margin-bottom:0">The four highest-leverage levers, in order of return on effort.</p>
+    <ol>
+      <li><strong>Lock in competitive input settings — and never touch them.</strong> Controller: <code>Dynamic</code> aim curve, <code>Instant</code> ADS transition, sensitivity 6–8, ADS multiplier ~0.85–0.90, low deadzones, vibration &amp; trigger-effects off. Mouse: 800 DPI for precision, 1600 for speed.</li>
+      <li><strong>Tune audio for footsteps.</strong> Zero out Music and War Tracks, max Effects, keep Master high, pick a footstep-forward mix (ONE Esports' "Home Theater").</li>
+      <li><strong>Run the current meta.</strong> Season 4: <strong>DS20 Mirage</strong> (#1 AR), <strong>Carbon 57 / Dravec 45</strong> (SMGs), <strong>VS Recon</strong> (sniper) — built around fast sprint-to-fire and 50–60 round mags.</li>
+      <li><strong>Train aim deliberately.</strong> A 45-minute four-pillar daily routine (flick, track, micro-adjust, switch), progressed accuracy-first over 30 days, capped at 2–3 hrs/day.</li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <section id="settings">
+    <div class="kicker">Foundation</div>
+    <h2>1 · Settings &amp; Sensitivity</h2>
+    <p class="lead">Consistency beats cleverness. Pick values inside the proven bands, then leave them alone — muscle memory is the asset, not the exact number. The two inputs tune very differently, so they're split out below.</p>
+
+    <!-- CONTROLLER -->
+    <div class="platform">
+      <div class="pf-head">
+        <span class="pf-icon">🎮</span>
+        <div class="pf-titlewrap">
+          <div class="pf-title">Controller</div>
+          <div class="pf-sub">PlayStation · Xbox · controller-on-PC</div>
+        </div>
+        <span class="badge b-hi">High</span>
+      </div>
+
+      <h3>Aim &amp; ADS</h3>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Setting</th><th>Recommended</th><th>Why</th></tr></thead>
+        <tbody>
+        <tr><td>Aim Response Curve</td><td><code>Dynamic</code></td><td>Precise near center, fast at the edges</td></tr>
+        <tr><td>ADS Transition Timing</td><td><code>Instant</code></td><td>No sensitivity lag when aiming</td></tr>
+        <tr><td>Sensitivity (H/V)</td><td>6–8 (e.g. 6/6 or 7/7)</td><td>Elite range; CDL pro "Gismo" runs 7/7</td></tr>
+        <tr><td>ADS Sens Multiplier</td><td>0.85–0.90 <span class="badge b-med">Med</span></td><td>Sources split — pick one and keep it</td></tr>
+        <tr><td>Aim Assist</td><td><code>On</code> (Black Ops type)</td><td>Standard competitive choice</td></tr>
+        <tr><td>Vibration / Trigger Effect</td><td><code>Off</code></td><td>Removes input interference</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Deadzones</h3>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Stick / Trigger</th><th>Min / Max</th><th>Why</th></tr></thead>
+        <tbody>
+        <tr><td>Left Stick</td><td>0 / 80</td><td>Raise min only if you get drift</td></tr>
+        <tr><td>Right Stick</td><td>0 / 99</td><td>Max aim responsiveness</td></tr>
+        <tr><td>Left Trigger</td><td>0</td><td>Faster ADS actuation</td></tr>
+        </tbody>
+      </table></div>
+      <div class="note">Scales differ between versions: the new BO7/Warzone-2026 multiplier scale (Dexerto's <code>1.60/1.60</code>) is <em>not</em> comparable to the legacy 1–10 scale (ONE Esports' <code>6/6</code>). Match the scale your game shows.</div>
+      <div class="src">Sources: <a href="https://www.dexerto.com/wikis/warzone/best-controller-settings-warzone/">Dexerto</a>, <a href="https://www.oneesports.gg/call-of-duty/best-warzone-settings-graphic-audio/">ONE Esports</a>, <a href="https://eu.aimcontrollers.com/blog/best-controller-settings-for-warzone-2026-loadout-guide-for-aim-movement-and-consistency/">AimControllers</a>, <a href="https://noping.com/blog/how-to-get-better-at-warzone">noping.com</a></div>
+    </div>
+
+    <!-- PC -->
+    <div class="platform">
+      <div class="pf-head">
+        <span class="pf-icon">🖥️</span>
+        <div class="pf-titlewrap">
+          <div class="pf-title">PC — Mouse &amp; Keyboard</div>
+          <div class="pf-sub">No aim assist — raw precision is on you</div>
+        </div>
+        <span class="badge b-med">Medium</span>
+      </div>
+
+      <h3>DPI &amp; Sensitivity</h3>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Choice</th><th>Best for</th><th>Trade-off</th></tr></thead>
+        <tbody>
+        <tr><td><strong>800 DPI</strong></td><td>Precision &amp; micro-adjustment; pros cluster here</td><td>Needs a large mousepad and big arm sweeps</td></tr>
+        <tr><td><strong>1600 DPI</strong></td><td>Quicker responsiveness on small movements</td><td>Some loss of fine control</td></tr>
+        </tbody>
+      </table></div>
+      <ul class="tight">
+        <li>Pick <strong>800 or 1600 DPI</strong>, set in-game sens to taste, then <strong>lock your effective sensitivity (eDPI)</strong> and never change it.</li>
+        <li>No aim assist on M&amp;K — so deadzone/curve settings don't apply; your raw tracking and flicks do all the work. Lean harder on the aim-training routine in section 4.</li>
+        <li>Keep mouse polling high and disable in-OS mouse acceleration for 1:1 movement.</li>
+      </ul>
+      <div class="src">Source: <a href="https://noping.com/blog/best-mouse-sensitivity-for-warzone">noping.com</a></div>
+    </div>
+
+    <div class="note"><strong>Both inputs:</strong> the audio and FOV settings in the next sections apply regardless of controller or M&amp;K — tune those once and they carry across platforms.</div>
+  </section>
+
+  <!-- 2 -->
+  <section id="audio">
+    <div class="kicker">Awareness</div>
+    <h2>2 · Audio &amp; "Sound Whoring"</h2>
+    <p class="lead">Footstep awareness wins gunfights before they start. Strip everything that masks footsteps.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Channel</th><th>Set to</th></tr></thead>
+      <tbody>
+      <tr><td>Master Volume</td><td>75–100</td></tr>
+      <tr><td>Effects Volume</td><td>~100 (max)</td></tr>
+      <tr><td>Music</td><td>0</td></tr>
+      <tr><td>War Tracks</td><td>0</td></tr>
+      <tr><td>Dialogue / Voice Chat</td><td>40–70 (preference)</td></tr>
+      <tr><td>Audio Mix</td><td>Footstep-forward — "Home Theater" (Master 50 / Effects 100 / Music 0 / Dialogue 70)</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note"><span class="badge b-hi">High</span> on the principle (zero music/war tracks, max effects). <span class="badge b-med">Medium</span> on the exact preset — sources disagree (Home Theater vs Treyarch Mix vs Boost High). Test a few on the firing range with a teammate walking around you.</div>
+    <div class="src">Sources: <a href="https://www.oneesports.gg/call-of-duty/best-warzone-settings-graphic-audio/">ONE Esports (graphics/audio)</a>, <a href="https://www.oneesports.gg/call-of-duty/best-audio-settings-for-warzone/">ONE Esports (audio)</a></div>
+  </section>
+
+  <!-- 3 -->
+  <section id="meta">
+    <div class="kicker">Loadouts</div>
+    <h2>3 · Weapon Meta &amp; Loadouts</h2>
+    <p class="lead">Snapshot of the Season 4 (June 2026) meta. This is the most time-sensitive section — re-check before every patch.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Class</th><th>Tier</th><th>Weapon</th><th>Role</th></tr></thead>
+      <tbody>
+      <tr><td>Assault Rifle</td><td class="tier tier-s">S · #1</td><td>DS20 Mirage</td><td>Best overall &amp; long-range</td></tr>
+      <tr><td>Assault Rifle</td><td class="tier tier-a">#2</td><td>AK-27</td><td>Long-range backup</td></tr>
+      <tr><td>Assault Rifle</td><td class="tier tier-a">#3</td><td>MXR-17</td><td>Long-range backup</td></tr>
+      <tr><td>SMG</td><td class="tier tier-s">S · #1</td><td>Carbon 57</td><td>Close-range primary</td></tr>
+      <tr><td>SMG</td><td class="tier tier-a">#2</td><td>Dravec 45</td><td>Close-range (recently buffed)</td></tr>
+      <tr><td>Sniper</td><td class="tier tier-s">S · #1</td><td>VS Recon</td><td>One-shot potential</td></tr>
+      <tr><td>Sniper</td><td class="tier tier-a">#2/#3</td><td>Hawker HX / Strider 300</td><td>Long-range backups</td></tr>
+      </tbody>
+    </table></div>
+    <p><span class="badge b-hi">High</span></p>
+    <h3>Loadout-Building Principles <span class="badge b-hi">High</span></h3>
+    <ul class="tight">
+      <li><strong>Two-gun template:</strong> high-mobility SMG close + high-bullet-velocity AR for mid/long range.</li>
+      <li><strong>Prioritize Sprint-to-Fire</strong> attachments (e.g. Striker stubby grip) — wins close peeks.</li>
+      <li><strong>Run 50–60 round mags</strong> in squad modes — you'll fight multiple armored enemies per engagement.</li>
+      <li><strong>For AR velocity:</strong> Monolithic Suppressor + longer (17in) barrels.</li>
+    </ul>
+    <div class="src">Sources: <a href="https://wzranked.com/games/call-of-duty-warzone/meta">WZRanked</a>, <a href="https://wzstats.gg/">WZStats</a>, <a href="https://noping.com/blog/how-to-get-better-at-warzone">noping.com</a></div>
+  </section>
+
+  <!-- 4 -->
+  <section id="aim">
+    <div class="kicker">Mechanics</div>
+    <h2>4 · Aim Training</h2>
+    <p class="lead">Deliberate, daily, accuracy-first. Use Aim Lab or KovaaK's outside the game, then transfer to the firing range.</p>
+    <h3>Daily 45-Minute Four-Pillar Routine <span class="badge b-hi">High</span></h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Block</th><th>Skill</th><th>Example scenario</th></tr></thead>
+      <tbody>
+      <tr><td>Warm-up</td><td>General</td><td>Gridshot Ultimate</td></tr>
+      <tr><td>1</td><td>Flicking</td><td>Flick-shot drills</td></tr>
+      <tr><td>2</td><td>Tracking</td><td>Smoothbot</td></tr>
+      <tr><td>3</td><td>Micro-adjust</td><td>Micro-Shot Ultimate</td></tr>
+      <tr><td>4</td><td>Target switching</td><td>Multi-Target Switch</td></tr>
+      </tbody>
+    </table></div>
+    <h3>30-Day Progression <span class="badge b-hi">High</span></h3>
+    <ul class="tight">
+      <li><strong>Week 1 —</strong> slow, perfect form. Build the motion correctly.</li>
+      <li><strong>Week 2 —</strong> increase speed ~10%, accept some accuracy loss.</li>
+      <li><strong>Week 3 —</strong> hold that speed, claw accuracy back up.</li>
+      <li><strong>Week 4 —</strong> add new scenarios / harder variants.</li>
+    </ul>
+    <div class="danger"><strong>Cap total aim training at 2–3 hours/day.</strong> More invites overtraining and RSI with diminishing returns. Quality reps beat volume.</div>
+    <div class="src">Sources: <a href="https://dcprosens.com/blog/aim-training-routine-fps-games-2026">dcprosens.com</a>, <a href="https://kr4m.com/kovaaks/">kr4m.com</a></div>
+  </section>
+
+  <!-- 5 -->
+  <section id="movement">
+    <div class="kicker">Mechanics</div>
+    <h2>5 · Movement Tech <span class="badge b-un">Unverified</span></h2>
+    <div class="note">The research pass did <strong>not</strong> surface fact-checked claims on 2026 BO7-era movement specifics. Below is widely-taught community practice — confirm against current in-game mechanics, which change with each engine update.</div>
+    <ul class="tight">
+      <li><strong>Plate while moving.</strong> Never stand still to armor up — re-plate behind cover or while repositioning. Do it the instant you break contact.</li>
+      <li><strong>Slide &amp; slide-cancel</strong> to shorten your hitbox and break an enemy's tracking as a fight opens.</li>
+      <li><strong>Peeking:</strong> pre-aim the angle, expose minimally, and jiggle-peek to bait shots without committing.</li>
+      <li><strong>Drop-shot / jump-shot</strong> selectively to throw off a crosshair mid-duel.</li>
+      <li>Drill movement in the firing range until it costs zero conscious thought in a real fight.</li>
+    </ul>
+  </section>
+
+  <!-- 6 -->
+  <section id="gulag">
+    <div class="kicker">Strategy</div>
+    <h2>6 · Gulag Strategy <span class="badge b-hi">High</span></h2>
+    <ul class="tight">
+      <li>You get <strong>exactly one</strong> Gulag opportunity per match — after your first elimination, if it's still open.</li>
+      <li>It's a <strong>1v1 with identical loadouts</strong> — pure aim and nerves, no gear advantage.</li>
+      <li><strong>Two ways to redeploy:</strong> eliminate your opponent, or climb the <strong>ascender exfil</strong> that drops into the middle of the room during overtime (~15–20s in).</li>
+      <li>Hold a strong angle, don't over-peek early, and sprint the middle for the ascender if you can beat your opponent there in OT.</li>
+    </ul>
+    <div class="src">Source: <a href="https://www.callofduty.com/guides/training/call-of-duty-guides-warzone-how-to-play">Official Call of Duty guide</a> (primary)</div>
+  </section>
+
+  <!-- 7 -->
+  <section id="strategy">
+    <div class="kicker">Strategy</div>
+    <h2>7 · Rotations, Positioning &amp; Gas <span class="badge b-un">Unverified</span></h2>
+    <div class="note">No verified claims survived for this topic. The following is standard high-level practice — sound, but not independently fact-checked here.</div>
+    <ul class="tight">
+      <li><strong>Rotate early, with cover.</strong> Move before the gas forces you — arrive at the next circle with high ground and an angle.</li>
+      <li><strong>Avoid the third party.</strong> After a fight, reposition and plate immediately; gunfire draws nearby squads. Don't loot in the open.</li>
+      <li><strong>Play the edge</strong> when ahead (fewer angles on you); take center/high ground in the endgame.</li>
+      <li><strong>Track the gas clock</strong> and pre-plan your path; carry gas masks for late-circle plays.</li>
+      <li><strong>Use high ground and cover</strong> in the final circles; pre-aim likely push lanes.</li>
+    </ul>
+  </section>
+
+  <!-- 8 -->
+  <section id="comms">
+    <div class="kicker">Teamplay</div>
+    <h2>8 · Comms, Roles &amp; Looting <span class="badge b-un">Unverified</span></h2>
+    <div class="note">Practitioner guidance; not fact-checked in this pass.</div>
+    <ul class="tight">
+      <li><strong>Callouts:</strong> direction + distance + status — "two enemies, NW, ~80m, one cracked." Use compass headings, not "over there."</li>
+      <li><strong>Assign roles:</strong> an IGL (calls rotations), an anchor (holds/snipes), and a flex/entry fragger.</li>
+      <li><strong>One caller in a fight.</strong> Cross-talk loses gunfights — confirm kills, call reloads, stay concise.</li>
+      <li><strong>Loot with purpose:</strong> grab cash → buy loadout + UAV/self-revives early, then stop looting and play.</li>
+      <li><strong>Share loot</strong> (plates, ammo, killstreaks) and ping it rather than hoarding.</li>
+    </ul>
+  </section>
+
+  <!-- 9 -->
+  <section id="mistakes">
+    <div class="kicker">Pitfalls</div>
+    <h2>9 · Common Beginner Mistakes</h2>
+    <ul class="tight">
+      <li>Constantly changing sensitivity and settings — kills muscle memory.</li>
+      <li>Plating in the open / standing still to armor up.</li>
+      <li>Over-looting instead of getting a loadout and playing.</li>
+      <li>Pushing fights without checking for third parties.</li>
+      <li>Rotating late and getting caught in the gas.</li>
+      <li>Running off-meta guns without knowing why.</li>
+      <li>Treating aim trainers as a grind — volume over quality, then overtraining.</li>
+    </ul>
+  </section>
+
+  <hr class="div">
+
+  <!-- WINNING BLUEPRINT -->
+  <section id="winning">
+    <div class="kicker">Win condition</div>
+    <h2>The Winning Blueprint <span class="badge b-un">Unverified</span></h2>
+    <p class="lead">A complete game plan for taking the win, phase by phase. Synthesized from the strategy sources below — sound, widely-taught practice, but not individually fact-checked in this research pass.</p>
+
+    <div class="winnote">
+      <b>The single mindset shift that wins games:</b> Warzone rewards <b>placement, not kills</b>. The team holding the best position in the last circle wins — not the one with the most eliminations. Survive first, frag second, and let other squads burn each other down while you stay alive and well-positioned.
+    </div>
+
+    <div class="phase">
+      <div class="ph-head"><span class="ph-tag">Phase 1</span><h4>The Drop &amp; First 90 Seconds</h4><span class="ph-min">~0–3 min</span></div>
+      <ul class="tight">
+        <li>Land <strong>adjacent to</strong> a hot zone, not on top of it — grab loot uncontested, then rotate into fights on your terms.</li>
+        <li>First priority is <strong>cash</strong>. Rush a Buy Station to purchase your custom loadout as fast as possible — your meta guns and perks decide every fight after.</li>
+        <li>Get to <strong>full armor</strong> and stock plates before pushing anyone.</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="ph-head"><span class="ph-tag">Phase 2</span><h4>Early Game — Bank Intel &amp; Cash</h4><span class="ph-min">first 2 circles</span></div>
+      <ul class="tight">
+        <li>Run <strong>contracts</strong> with purpose: <em>Recon</em> reveals the next circle (huge rotation advantage), <em>Bounty</em> funds your buys, <em>Most Wanted</em> only if you're confident.</li>
+        <li>Buy <strong>UAVs</strong> to track enemy density and pick safe fights. Information beats aim at this stage.</li>
+        <li>Avoid greedy third fights — take engagements you can win cleanly and reset.</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="ph-head"><span class="ph-tag">Phase 3</span><h4>Mid Game — Own the Rotation</h4><span class="ph-min">circles 3–5</span></div>
+      <ul class="tight">
+        <li><strong>Rotate early and with cover.</strong> Be inside the next circle before it closes, holding high ground and an angle — never gassed and exposed at the edge.</li>
+        <li><strong>Third-party deliberately:</strong> let two squads fight, then clean up the weakened winner. Don't be the squad that gets third-partied — reposition and plate the instant a fight ends.</li>
+        <li><strong>Pick up self-revives, gas masks, and a precision airstrike / cluster</strong> for endgame zone control.</li>
+        <li>Hold a compound with cover at your back; deny enemies the high ground you want.</li>
+      </ul>
+    </div>
+
+    <div class="phase">
+      <div class="ph-head"><span class="ph-tag">Phase 4</span><h4>Endgame — Closing It Out</h4><span class="ph-min">final 2–3 circles</span></div>
+      <ul class="tight">
+        <li><strong>Get position before the zone forces you.</strong> Claim high ground or a strong building early — being caught moving in the open in the last circles loses games.</li>
+        <li><strong>Read the circle pull</strong> and play the side it's collapsing toward, so you rotate <em>downhill</em> while enemies push uphill into you.</li>
+        <li><strong>Use utility to win space:</strong> smokes to cross open ground, stuns/flashes before a push, gas mask to play the edge when others can't.</li>
+        <li><strong>Patience wins.</strong> In a 2–3 squad endgame, let them fight first. Hold your angle, trade efficiently with your team, and take the last fight from the strongest position — not the most aggressive one.</li>
+      </ul>
+    </div>
+
+    <div class="src">Sources (practitioner): <a href="https://www.zleague.gg/theportal/warzone-2-endgame-tactics/">ZLeague — Endgame Tactics</a> · <a href="https://www.zleague.gg/theportal/pro-warzone-strategies/">ZLeague — Pro Strategies</a> · <a href="https://eliteteddy.com/warzone-positioning-guide/">eliteteddy.com — Positioning</a> · <a href="https://angularcamp.org/how-to-rotate-safely-in-warzone-and-avoid-getting-third-partied/">angularcamp.org — Safe Rotations</a></div>
+  </section>
+
+  <hr class="div">
+
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="kicker">The Roadmap</div>
+    <h2>The 8-Week Average → Expert Plan</h2>
+    <p class="lead">Combines the verified 30-day aim ramp with settings lock-in, meta adoption, and in-match review. About 1–2 focused hours/day.</p>
+
+    <div class="week"><div class="wk"><small>Week</small><b>1</b></div><div class="wd">
+      <h4>Foundation &amp; settings lock-in</h4>
+      <ul class="tight">
+        <li>Set controller/mouse, audio and FOV. <strong>Commit — no more changes.</strong></li>
+        <li>Build current-meta loadouts (DS20 Mirage + Carbon 57).</li>
+        <li>Aim training: Week-1 ramp — slow, perfect form, 45 min/day.</li>
+      </ul>
+    </div></div>
+    <div class="week"><div class="wk"><small>Week</small><b>2</b></div><div class="wd">
+      <h4>Aim speed + movement basics</h4>
+      <ul class="tight">
+        <li>Aim ramp Week 2 — +10% speed.</li>
+        <li>Drill plating-on-the-move and slide-cancels in the firing range daily.</li>
+        <li>Play Resurgence where you can re-engage and fight often.</li>
+      </ul>
+    </div></div>
+    <div class="week"><div class="wk"><small>Week</small><b>3</b></div><div class="wd">
+      <h4>Aim consistency + Gulag &amp; peeking</h4>
+      <ul class="tight">
+        <li>Aim ramp Week 3 — hold speed, recover accuracy.</li>
+        <li>Practice pre-aiming and minimal-exposure peeks.</li>
+        <li>Treat every Gulag as 1v1 aim practice; learn the overtime ascender.</li>
+      </ul>
+    </div></div>
+    <div class="week"><div class="wk"><small>Week</small><b>4</b></div><div class="wd">
+      <h4>New scenarios + positioning</h4>
+      <ul class="tight">
+        <li>Aim ramp Week 4 — add harder scenarios.</li>
+        <li>Focus on rotating early with cover and avoiding third parties.</li>
+        <li>Start recording your matches.</li>
+      </ul>
+    </div></div>
+    <div class="week"><div class="wk"><small>Week</small><b>5</b></div><div class="wd">
+      <h4>VOD review becomes routine</h4>
+      <ul class="tight">
+        <li>Review one death per match: positioning, plating, or peek?</li>
+        <li>Re-check the meta — apply any balance-patch loadout changes.</li>
+        <li>Aim training drops to ~30–45 min maintenance.</li>
+      </ul>
+    </div></div>
+    <div class="week"><div class="wk"><small>Week</small><b>6</b></div><div class="wd">
+      <h4>Comms &amp; team roles</h4>
+      <ul class="tight">
+        <li>Play with a consistent squad; assign IGL / anchor / entry.</li>
+        <li>Drill concise callouts (direction + distance + status).</li>
+        <li>Practice trading kills and re-plating as a unit.</li>
+      </ul>
+    </div></div>
+    <div class="week"><div class="wk"><small>Week</small><b>7</b></div><div class="wd">
+      <h4>Endgame &amp; gas management</h4>
+      <ul class="tight">
+        <li>Focus on circle reads, high-ground control, gas-mask plays.</li>
+        <li>Practice closing out final circles from advantageous spots.</li>
+        <li>Review every endgame loss specifically.</li>
+      </ul>
+    </div></div>
+    <div class="week"><div class="wk"><small>Week</small><b>8</b></div><div class="wd">
+      <h4>Integration &amp; pressure-test</h4>
+      <ul class="tight">
+        <li>Combine everything in ranked/competitive play.</li>
+        <li>Set measurable goals (K/D, placement, accuracy %) and track them.</li>
+        <li>Identify your biggest remaining weakness and dedicate the next cycle to it.</li>
+      </ul>
+    </div></div>
+  </section>
+
+  <hr class="div">
+
+  <!-- MYTHS -->
+  <section id="myths">
+    <div class="kicker">Don't waste time</div>
+    <h2>Debunked Myths</h2>
+    <p class="lead">These popular claims <strong>failed</strong> adversarial verification.</p>
+    <div class="refgrid">
+      <div class="refrow"><span class="badge b-ref">0-3</span> <span class="strike">"Krig C is the top AR"</span> — outdated for the Season 4 meta.</div>
+      <div class="refrow"><span class="badge b-ref">0-3</span> <span class="strike">"LC10 is a top-tier SMG"</span> — not in the current meta.</div>
+      <div class="refrow"><span class="badge b-ref">0-3</span> <span class="strike">"Pros use FOV 103–115 + Wide weapon FOV"</span> — unsupported; optimal FOV left unconfirmed.</div>
+      <div class="refrow"><span class="badge b-ref">0-3</span> <span class="strike">"Headphone Bass Boost is the optimal footstep preset"</span> — not the consensus pick.</div>
+      <div class="refrow"><span class="badge b-ref">1-2</span> <span class="strike">"Enable Windows Loudness Equalization for footsteps"</span> — disputed.</div>
+      <div class="refrow"><span class="badge b-ref">1-2</span> <span class="strike">"1200 DPI + 4.5–5.5 sens is the balanced setup"</span> — not corroborated.</div>
+    </div>
+  </section>
+
+  <!-- CAVEATS -->
+  <section id="caveats">
+    <div class="kicker">Read this</div>
+    <h2>Important Caveats</h2>
+    <div class="danger">
+      <ul class="tight" style="margin:0">
+        <li><strong>The weapon meta expires fast.</strong> Every gun here is pinned to Season 4 (June 2026) and shifts with each patch. Re-check <a class="inline" href="https://wzstats.gg/">wzstats.gg</a> and <a class="inline" href="https://wzranked.com/games/call-of-duty-warzone/meta">wzranked.com</a>.</li>
+        <li><strong>Settings are preferences, not optima.</strong> Sensitivity, ADS multiplier, deadzones, DPI and audio mix come from reputable blogs that disagree on exact numbers. Tune within the bands.</li>
+        <li><strong>Sensitivity scales differ</strong> between game versions — a "6" and a "1.60" are not the same.</li>
+        <li><strong>Movement, rotations, gas, comms and looting</strong> are unverified practitioner guidance — no fact-checked claims surfaced for them.</li>
+        <li>Aim-training durations and the 30-day ramp are coaching conventions, corroborated in spirit but not empirically proven to exact percentages.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section id="sources">
+    <div class="kicker">References</div>
+    <h2>Key Sources</h2>
+    <ul class="tight" style="font-size:.95rem">
+      <li><strong>Primary:</strong> <a class="inline" href="https://www.callofduty.com/guides/training/call-of-duty-guides-warzone-how-to-play">Official Call of Duty — How to Play / Gulag</a></li>
+      <li><strong>Meta:</strong> <a class="inline" href="https://wzstats.gg/">WZStats</a> · <a class="inline" href="https://wzranked.com/games/call-of-duty-warzone/meta">WZRanked</a></li>
+      <li><strong>Settings:</strong> <a class="inline" href="https://www.dexerto.com/wikis/warzone/best-controller-settings-warzone/">Dexerto</a> · <a class="inline" href="https://www.oneesports.gg/call-of-duty/best-warzone-settings-graphic-audio/">ONE Esports</a> · <a class="inline" href="https://eu.aimcontrollers.com/blog/best-controller-settings-for-warzone-2026-loadout-guide-for-aim-movement-and-consistency/">AimControllers</a></li>
+      <li><strong>Audio:</strong> <a class="inline" href="https://www.oneesports.gg/call-of-duty/best-audio-settings-for-warzone/">ONE Esports — Audio</a></li>
+      <li><strong>Aim training:</strong> <a class="inline" href="https://dcprosens.com/blog/aim-training-routine-fps-games-2026">dcprosens.com</a> · <a class="inline" href="https://kr4m.com/kovaaks/">kr4m.com</a></li>
+      <li><strong>Mouse:</strong> <a class="inline" href="https://noping.com/blog/best-mouse-sensitivity-for-warzone">noping.com</a></li>
+      <li><strong>Strategy (unverified):</strong> <a class="inline" href="https://eliteteddy.com/warzone-positioning-guide/">eliteteddy.com</a> · <a class="inline" href="https://angularcamp.org/how-to-rotate-safely-in-warzone-and-avoid-getting-third-partied/">angularcamp.org</a> · <a class="inline" href="https://www.zleague.gg/theportal/pro-warzone-strategies/">ZLeague</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    Generated by a deep-research agentic flow — 22 sources fetched, 96 claims extracted, 25 adversarially verified (19 confirmed / 6 refuted), synthesized 7 June 2026.<br>
+    Confidence labels reflect source consensus at research time. Re-verify the weapon meta before each play session.
+  </footer>
+</div>
+</body>
+</html>
