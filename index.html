@@ -172,6 +172,22 @@
   .platform h3{margin-top:24px}
   .platform h3:first-of-type{margin-top:8px}
 
+  /* weapon build cards */
+  .gun{background:var(--panel);border:1px solid var(--line2);border-radius:22px;
+    padding:0 0 24px;margin:22px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,.04),0 10px 40px rgba(0,0,0,.03)}
+  .gun .gun-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    padding:22px 28px;border-bottom:1px solid var(--line2);background:#fafafc}
+  .gun .gun-name{font-size:1.35rem;font-weight:700;letter-spacing:-.01em}
+  .gun .gun-role{color:var(--mut);font-size:.9rem;font-weight:500}
+  .gun .gun-rolewrap{flex:1;min-width:160px}
+  .gun .tablewrap{margin:18px 24px 0;box-shadow:none}
+  .gun .alt{margin:14px 24px 0;font-size:.9rem;color:var(--mut)}
+  .gun .alt b{color:var(--txt);font-weight:600}
+  td.slot{font-weight:600;white-space:nowrap;color:var(--mut);font-size:.86rem;
+    text-transform:uppercase;letter-spacing:.4px}
+  td.att{font-weight:600}
+
   footer{text-align:center;color:var(--mut);font-size:.86rem;margin-top:50px;
     padding-top:28px;line-height:1.6}
 
@@ -204,6 +220,7 @@
     <a href="#settings">1 · Settings &amp; Sensitivity</a>
     <a href="#audio">2 · Audio / Sound Whoring</a>
     <a href="#meta">3 · Weapon Meta &amp; Loadouts</a>
+    <a href="#loadouts">★ Loadout Builds &amp; Mods</a>
     <a href="#aim">4 · Aim Training</a>
     <a href="#movement">5 · Movement Tech</a>
     <a href="#gulag">6 · Gulag Strategy</a>
@@ -347,6 +364,128 @@
       <li><strong>For AR velocity:</strong> Monolithic Suppressor + longer (17in) barrels.</li>
     </ul>
     <div class="src">Sources: <a href="https://wzranked.com/games/call-of-duty-warzone/meta">WZRanked</a>, <a href="https://wzstats.gg/">WZStats</a>, <a href="https://noping.com/blog/how-to-get-better-at-warzone">noping.com</a></div>
+  </section>
+
+  <!-- LOADOUT BUILDS -->
+  <section id="loadouts">
+    <div class="kicker">Exact mods</div>
+    <h2>★ Meta Loadout Builds &amp; Attachments</h2>
+    <p class="lead">Verified 5-attachment builds for the top Season 4 weapons, cross-checked across wzstats.gg, wzranked.com and codmunity.gg (research run 20 Jun 2026). Where trackers disagree on the 5th slot, both options are listed. <strong>Re-verify before relying on these</strong> — builds shift with every balance patch.</p>
+
+    <div class="winnote">
+      <b>The standard expert loadout:</b> a suppressed long-range AR (<b>MXR-17</b> or <b>AK-27</b>) as your primary, paired with the <b>Carbon 57</b> as secondary. The Carbon 57 is uniquely ranked <b>#1 for both close range AND sniper support</b>, so it's the optimal second gun whether your primary is an AR or a sniper. Dravec 45 is the next-best close-range alternative.
+    </div>
+
+    <h3>Long-Range Assault Rifles</h3>
+
+    <!-- MXR-17 -->
+    <div class="gun">
+      <div class="gun-head">
+        <div class="gun-rolewrap">
+          <div class="gun-name">MXR-17</div>
+          <div class="gun-role">Suppressed long-range AR · "Absolute Meta"</div>
+        </div>
+        <span class="badge b-hi">High · 3-0</span>
+      </div>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Slot</th><th>Attachment</th><th>Why</th></tr></thead>
+        <tbody>
+        <tr><td class="slot">Optic</td><td class="att">FANG Hoverpoint ELO</td><td>Clean long-range sight picture</td></tr>
+        <tr><td class="slot">Muzzle</td><td class="att">Monolithic Suppressor</td><td>Stays off radar/minimap + boosts range &amp; velocity</td></tr>
+        <tr><td class="slot">Barrel</td><td class="att">17" Greaves Scourge Barrel</td><td>Bullet velocity &amp; effective range</td></tr>
+        <tr><td class="slot">Magazine</td><td class="att">Rhodes Drum Mag</td><td>More rounds for multi-armor fights</td></tr>
+        <tr><td class="slot">5th slot</td><td class="att">VAS Convergence Foregrip <span style="color:var(--mut);font-weight:400">or</span> Winch Stock</td><td>Foregrip = ADS/range (wzstats); Stock = recoil control (codmunity)</td></tr>
+        </tbody>
+      </table></div>
+      <div class="src" style="margin:14px 24px 0">Sources: <a href="https://wzstats.gg/best-loadouts/mxr-17">wzstats.gg</a> · <a href="https://codmunity.gg/weapon/bo7/mxr-17">codmunity.gg</a></div>
+    </div>
+
+    <!-- AK-27 -->
+    <div class="gun">
+      <div class="gun-head">
+        <div class="gun-rolewrap">
+          <div class="gun-name">AK-27</div>
+          <div class="gun-role">Suppressed long-range AR · buffed in Season 4</div>
+        </div>
+        <span class="badge b-hi">High · 2-1</span>
+      </div>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Slot</th><th>Attachment</th><th>Why</th></tr></thead>
+        <tbody>
+        <tr><td class="slot">Optic</td><td class="att">FANG Hoverpoint ELO</td><td>Clean long-range sight picture</td></tr>
+        <tr><td class="slot">Muzzle</td><td class="att">Monolithic Suppressor</td><td>Off-radar + range &amp; velocity</td></tr>
+        <tr><td class="slot">Barrel</td><td class="att">17.6" Vandal Heavy Barrel</td><td>Velocity &amp; range for long shots</td></tr>
+        <tr><td class="slot">Underbarrel</td><td class="att">VAS Convergence Foregrip</td><td>Recoil control + ADS stability</td></tr>
+        <tr><td class="slot">Magazine</td><td class="att">Saber Pack Heavy Drum</td><td>Large mag for sustained multi-armor fire</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alt"><b>Season 4 note:</b> AK-27 got a horizontal-recoil reduction (Flip Mag 35→40), pushing it into the top long-range tier. <b>Alt variant (wzstats):</b> Millimeter Scanner optic + Pugil Heavy Stock.</div>
+      <div class="src" style="margin:14px 24px 0">Sources: <a href="https://wzstats.gg/best-loadouts/ak-27">wzstats.gg</a> · <a href="https://codmunity.gg/">codmunity.gg</a></div>
+    </div>
+
+    <div class="note"><span class="badge b-un">Unverified</span> The <strong>DS20 Mirage</strong> is the consensus #1 AR on wzranked.com/codmunity.gg, but no exact 5-attachment build survived verification in this pass. Use the same template — Monolithic Suppressor + long velocity barrel + FANG Hoverpoint ELO + heavy drum mag — and confirm the current build on <a class="inline" href="https://wzstats.gg/best-loadouts">wzstats.gg</a> before relying on it.</div>
+
+    <h3>SMGs</h3>
+
+    <!-- Carbon 57 -->
+    <div class="gun">
+      <div class="gun-head">
+        <div class="gun-rolewrap">
+          <div class="gun-name">Carbon 57</div>
+          <div class="gun-role">#1 close range &amp; #1 sniper support · best secondary in the game</div>
+        </div>
+        <span class="badge b-hi">High · 3-0</span>
+      </div>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Slot</th><th>Attachment</th><th>Why</th></tr></thead>
+        <tbody>
+        <tr><td class="slot">Muzzle</td><td class="att">LTI Stentorian Brake</td><td>Recoil control for close bursts</td></tr>
+        <tr><td class="slot">Barrel</td><td class="att">14" Rockleigh Barrel</td><td>Balanced range &amp; handling</td></tr>
+        <tr><td class="slot">Underbarrel</td><td class="att">Sapper Guard Handstop</td><td>Faster ADS &amp; movement</td></tr>
+        <tr><td class="slot">Magazine</td><td class="att">MFS Renown Plus Mag</td><td>Extra rounds for multi-kill fights</td></tr>
+        <tr><td class="slot">Fire Mods</td><td class="att">Accelerated Recoil System</td><td>Tighter fire pattern</td></tr>
+        </tbody>
+      </table></div>
+      <div class="alt"><b>TTK ~536ms</b> up to 16m. <b>Alt variant (wzstats):</b> Kühn Ported Comp muzzle, VAS Convergence Foregrip, Enhanced Cycle System fire mods.</div>
+      <div class="src" style="margin:14px 24px 0">Sources: <a href="https://wzranked.com/games/call-of-duty-warzone/meta/weapons/carbon-57">wzranked.com</a> · <a href="https://wzhub.gg/loadouts/bo7-carbon-57">wzhub.gg</a> · <a href="https://wzstats.gg/best-loadouts/carbon-57">wzstats.gg</a></div>
+    </div>
+
+    <!-- Dravec 45 -->
+    <div class="gun">
+      <div class="gun-head">
+        <div class="gun-rolewrap">
+          <div class="gun-name">Dravec 45</div>
+          <div class="gun-role">#2 close-range SMG · "Absolute Meta"</div>
+        </div>
+        <span class="badge b-hi">High · 3-0</span>
+      </div>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Slot</th><th>Attachment</th><th>Why</th></tr></thead>
+        <tbody>
+        <tr><td class="slot">Muzzle</td><td class="att">Bowen .45 Suppressor</td><td>Off-radar + recoil smoothing</td></tr>
+        <tr><td class="slot">Barrel</td><td class="att">19" EAM Horizon Barrel</td><td>Extends usable range</td></tr>
+        <tr><td class="slot">Magazine</td><td class="att">Gator Extended Mag</td><td>More rounds per engagement</td></tr>
+        <tr><td class="slot">Laser</td><td class="att">MFS Agile Laser Pro <span style="color:var(--mut);font-weight:400">or</span> Serval Q-Step Stock</td><td>Laser = ADS/hipfire (codmunity); Stock = recoil (wzstats)</td></tr>
+        <tr><td class="slot">Fire Mods</td><td class="att">Bolt Carrier Group</td><td>Higher effective fire rate</td></tr>
+        </tbody>
+      </table></div>
+      <div class="src" style="margin:14px 24px 0">Sources: <a href="https://codmunity.gg/weapon/bo7/dravec-45">codmunity.gg</a> · <a href="https://wzranked.com/games/call-of-duty-warzone/meta/weapons">wzranked.com</a> · <a href="https://wzstats.gg/best-loadouts/dravec-45">wzstats.gg</a></div>
+    </div>
+
+    <h3>Snipers <span class="badge b-med">Medium</span></h3>
+    <div class="note">By pick rate the <strong>Strider 300</strong> leads (≈4%), ahead of Hawker HX (≈1.6%) and VS Recon (≈0.7%) — so it's the safest sniper pick. But sniper <em>tier ordering</em> was too inconsistent across sources to confirm (multiple ranking claims were refuted), and <strong>no exact sniper attachment build survived verification</strong>. Treat Strider 300 as the default and pull its current build from <a class="inline" href="https://codmunity.gg/best-loadouts/warzone/sniper">codmunity.gg</a> / <a class="inline" href="https://wzstats.gg/best-loadouts">wzstats.gg</a>.</div>
+
+    <h3>Class Combos <span class="badge b-hi">High</span></h3>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Combo</th><th>Primary</th><th>Secondary</th><th>Use case</th></tr></thead>
+      <tbody>
+      <tr><td><strong>AR + SMG</strong> (default)</td><td>MXR-17 or AK-27</td><td>Carbon 57</td><td>All-purpose — long range + close cleanup</td></tr>
+      <tr><td><strong>Sniper support</strong></td><td>Strider 300 (sniper)</td><td>Carbon 57</td><td>Pick long, swap to SMG when rushed</td></tr>
+      <tr><td><strong>Aggressive</strong></td><td>Carbon 57</td><td>Dravec 45</td><td>Double-SMG for Resurgence/close maps</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="danger"><strong>Not verified in this research pass:</strong> the DS20 Mirage's exact build, full sniper builds, <strong>Perk Packages &amp; meta perks</strong>, <strong>lethal/tactical equipment</strong>, <strong>field upgrades</strong>, and per-attachment tuning values. These need a dedicated follow-up — the weapon builds above are the parts that cleared verification. <span style="color:var(--mut)">All sources are third-party stat trackers (no first-party Activision patch notes), and rankings differ by mode (BR / Resurgence / Ranked).</span></div>
   </section>
 
   <!-- 4 -->
